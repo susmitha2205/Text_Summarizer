@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        input[type="number"], input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.5;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Summarizer</h1>
+    <form action="/summarize" method="post">
+        <label for="input_text">Input Text:</label>
+        <textarea name="input_text" rows="10" cols="40" required></textarea>
+        <label for="num_sentences">Number of Sentences:</label>
+        <input type="number" name="num_sentences" value="3" required>
+        <input type="submit" value="Summarize">
+    </form>
+    {% if summary %}
+        <h2>Summarized Text:</h2>
+        <p>{{ summary }}</p>
+    {% endif %}
+</body>
+</html>
